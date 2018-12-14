@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electron + ts + React</title>
+    <script>
+        try {
+            mainApp = require('electron').remote.getGlobal('app');
+        } catch (e) {
+            console.log('run in browser');
+            function noop(){}
+            mainApp = new Proxy({}, {
+                get() {
+                    return noop;
+                }
+            });
+        }
+    </script>
+</head>
+<body style="-webkit-app-region: drag">
+    <div id="root"></div>
+<script type="text/javascript" src="../assets/index.js"></script></body>
+</html>

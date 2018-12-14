@@ -1,17 +1,12 @@
-/**
- * @file class App for mac & window
- * @author wangqiushi <wangqiushi@bytedance.com>
- */
 import { app, BrowserWindow } from 'electron';
-import installExtension, { REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } from 'electron-devtools-installer';
+import installExtension, { REACT_DEVELOPER_TOOLS } from 'electron-devtools-installer';
 import * as path from 'path';
 
-class Application implements MainApplication {
-    protected mainWindow: BrowserWindow | null;
-    protected mainHtml: string;
-    protected inited: boolean = false;
+class Application {
+    private mainWindow: BrowserWindow | null;
+    private inited: boolean = false;
 
-    protected async createWindow() {
+    private async createWindow() {
         if (process.env.NODE_ENV === 'development') {
             await this.installExtension();
         }
@@ -29,7 +24,7 @@ class Application implements MainApplication {
         this.loadContent();
     }
 
-    protected loadContent() {
+    private loadContent() {
         if (this.mainWindow === null) {
             return;
         }
@@ -37,15 +32,15 @@ class Application implements MainApplication {
         if (process.env.NODE_ENV === 'development') {
             // 打开开发者工具。
             this.mainWindow.webContents.openDevTools();
-            this.mainWindow.loadURL(`http://localhost:8080/${this.mainHtml}`);
+            this.mainWindow.loadURL(`http://localhost:8080/index.html`);
         } else {
-            this.mainWindow.loadURL(`file://${path.join(__dirname, '../pages/', this.mainHtml)}`);
+            this.mainWindow.loadURL(`file://${path.join(__dirname, '../pages/', 'index.html')}`);
         }
     }
 
     private async installExtension() {
         try {
-            await (installExtension(REACT_DEVELOPER_TOOLS), installExtension(REDUX_DEVTOOLS));   
+            await (installExtension(REACT_DEVELOPER_TOOLS));   
         } catch (e) {
             console.warn(e);
         }
