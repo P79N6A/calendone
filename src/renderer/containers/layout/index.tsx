@@ -1,26 +1,21 @@
-import * as React from 'react';
-import './index.less';
+import React, { Component } from "react";
 
-export interface Props {
-    left: React.ReactNode,
-    right: React.ReactNode,
-}
+import Nav from "../nav";
+import "./index.less";
+
 /**
- * base room layout for parent & student
+ * base app layout
  */
-const RoomLayout = function(props: Props) {
-    return (
-        <div className="layout">
-            <div className="room-main">
-                <div className="left">
-                    { props.left }
-                </div>
-                <div className="right">
-                    { props.right }
-                </div>
+abstract class BasicLayout extends Component<{}, {}> {
+    public abstract renderMain(): React.ReactNode;
+    render() {
+        return (
+            <div className="layout">
+                <Nav />
+                <div className="right">{this.renderMain()}</div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
-export default RoomLayout;
+export default BasicLayout;

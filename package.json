@@ -22,7 +22,6 @@
             "!src",
             "!docs",
             "!tsconfig.json",
-            "!fuse.js",
             "!dev-app-update.yml",
             "!README.md",
             "!LICENSE",
@@ -54,8 +53,8 @@
         "build-renderer": "webpack --config config/webpack.renderer.config.js",
         "build": "cross-env NODE_ENV=production yarn build-main && yarn build-renderer",
         "format": "prettier --write **/*.ts && tslint -p . --fix",
-        "start": "cross-env NODE_ENV=development yarn build-main && (yarn start-browser | electron ./dist/)",
-        "start-browser": "cross-env NODE_ENV=development webpack-dev-server --mode=development --config config/dev/webpack.renderer.config.js --hot --inline",
+        "dev": "cross-env NODE_ENV=development yarn build-main && (yarn dev-server | electron ./dist/)",
+        "dev-server": "cross-env NODE_ENV=development webpack-dev-server --mode=development --config config/dev/webpack.renderer.config --hot --inline",
         "pack": "electron-builder --dir",
         "dist": "electron-builder --mac --win --linux --ia32 --x64",
         "draft": "electron-builder -p always --draft --mac --win --linux --ia32 --x64",
@@ -74,7 +73,8 @@
         }
     },
     "dependencies": {
-        "electron": "^3.0.10",
+        "dexie": "^2.0.4",
+        "electron": "^4.0.2",
         "electron-devtools-installer": "^2.2.4",
         "electron-is-dev": "^1.0.1",
         "electron-updater": "^4.0.5",
@@ -89,17 +89,20 @@
         "@types/classnames": "^2.2.6",
         "@types/electron-devtools-installer": "^2.2.0",
         "@types/lodash": "^4.14.119",
+        "@types/node": "^10.12.18",
         "@types/rc-tooltip": "^3.7.0",
         "@types/react": "^16.7.7",
         "@types/react-dom": "^16.0.10",
         "@types/react-redux": "^6.0.10",
         "@types/react-router": "^4.4.1",
         "@types/react-router-dom": "^4.3.1",
+        "@types/sqlite3": "^3.1.3",
         "babel-loader": "^8.0.4",
         "classnames": "^2.2.6",
         "cross-env": "^5.2.0",
         "css-loader": "^1.0.1",
         "electron-builder": "^20.38.2",
+        "electron-rebuild": "^1.8.2",
         "html-webpack-plugin": "^3.2.0",
         "husky": "^1.2.0",
         "immer": "^1.8.0",
@@ -120,6 +123,7 @@
         "webpack": "^4.26.0",
         "webpack-cli": "^3.1.2",
         "webpack-dev-server": "^3.1.10",
-        "webpack-merge": "^4.1.4"
+        "webpack-merge": "^4.1.4",
+        "webpack-node-externals": "^1.7.2"
     }
 }

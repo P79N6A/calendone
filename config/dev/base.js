@@ -2,13 +2,8 @@
 const webpack = require('webpack');
 const path = require('path');
 
-let target = 'electron-renderer';
-if (process.env.CD_RUN_ENV === 'browser') {
-    target = 'web';
-}
-
 module.exports = {
-    target,
+    target: 'electron-renderer',
     entry: {
         index: './src/renderer/entry/index',
     },
@@ -88,6 +83,9 @@ module.exports = {
     },
     resolve: {
         modules: ["node_modules"],
+        alias: {
+            '@': path.join(__dirname, '../../src/renderer')
+        },
         extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
     },
     plugins: [

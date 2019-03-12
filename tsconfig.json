@@ -2,10 +2,10 @@
     "compilerOptions": {
         "baseUrl": "./src",
         "outDir": "build/dist",
-        "module": "es2015",
-        "target": "esnext",
+        "module": "commonjs",
+        "target": "es5",
         "lib": [
-            "esnext",
+            "es2015",
             "dom"
         ],
         "sourceMap": true,
@@ -19,7 +19,14 @@
         "importHelpers": true,
         "strictNullChecks": true,
         "suppressImplicitAnyIndexErrors": true,
-        "noUnusedLocals": true
+        "noUnusedLocals": true,
+        "resolveJsonModule": true,
+        "experimentalDecorators": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "paths": {
+            "@/*" : ["./*"],
+        }
     },
     "include": [
         "./src/**/*"

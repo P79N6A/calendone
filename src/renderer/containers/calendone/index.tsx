@@ -1,18 +1,13 @@
-import * as React from 'react';
-import Layout from '../layout';
-import './index.less';
+import React from "react";
+
+import Layout from "../layout";
+import "./index.less";
 /**
- * teacher room
- * init room all room service
+ * calendone part
  */
-class Calendone extends React.Component {
-    render() {
-        return (
-            <Layout
-                left={<nav />}
-                right={<article />}
-            />
-        );
+class Calendone extends Layout {
+    public renderMain() {
+        return <div className="main">main</div>;
     }
 }
 

@@ -1,7 +1,9 @@
-import * as React from 'react';
-import { HashRouter, Switch, Route } from 'react-router-dom';
-import { hot } from 'react-hot-loader';
-import Calendone from '../containers/calendone';
+import * as React from "react";
+import { HashRouter, Switch, Route } from "react-router-dom";
+import { hot } from "react-hot-loader";
+
+import Calendone from "../containers/calendone";
+import "../style/common.less";
 
 const Home = function(): JSX.Element {
     return (
@@ -11,6 +13,6 @@ const Home = function(): JSX.Element {
             </Switch>
         </HashRouter>
     );
-}
+};
 
 export default hot(module)(Home);
