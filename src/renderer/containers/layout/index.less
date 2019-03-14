@@ -1,5 +1,41 @@
+@import '../../style/color.less';
+
 .layout {
-    display: flex;
-    flex-direction: column;
+    position: relative;
     height: 100vh;
+}
+
+.nav-side {
+    position: absolute;
+    object-position: 0;
+    left: 0;
+    width: 220px;
+    height: 100%;
+    padding-top: 180px;
+    border-right: 1px solid @b0;
+    background-color: @bg1;
+    .iconfont.calendar:after {
+        content: '\ea2e';
+    }
+    .iconfont.plans:after {
+        content: '\e63a';
+    }
+    .nav-tab {
+        height: 48px;
+        line-height: 48px;
+        font-size: 16px;
+        padding: 0 32px;
+        &.active {
+            border-left: 4px solid @main;
+            color: @main;
+            background-color: @main-bkg;
+        }
+        i {
+            margin-right: 12px;
+        }
+    }
+}
+
+.main {
+    padding-left: 220px;
 }

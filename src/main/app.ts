@@ -14,6 +14,7 @@ class Application {
             width: 1140,
             height: 700,
             frame: false,
+            titleBarStyle: "hiddenInset",
             webPreferences: {
                 nodeIntegration: true
             }

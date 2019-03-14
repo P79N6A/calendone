@@ -1,18 +1,19 @@
 import React, { Component } from "react";
+import { RouteComponentProps } from "react-router";
 
-import Nav from "../nav";
+import Nav from "./nav";
 import "./index.less";
 
 /**
  * base app layout
  */
-abstract class BasicLayout extends Component<{}, {}> {
+abstract class BasicLayout extends Component<RouteComponentProps<{}>, {}> {
     public abstract renderMain(): React.ReactNode;
     render() {
         return (
             <div className="layout">
-                <Nav />
-                <div className="right">{this.renderMain()}</div>
+                <Nav location={this.props.location} />
+                <div className="main">{this.renderMain()}</div>
             </div>
         );
     }
