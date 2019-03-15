@@ -1,14 +1,19 @@
 @import './color.less';
 
-@main-font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", Helvetica, Tahoma, Arial;
+@main-font-family: "Museo", "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", Helvetica, Tahoma, Arial;
 @font-face {
     font-family: 'iconfont';  /* project id 1088790 */
-    src: url('//at.alicdn.com/t/font_1088790_3gghoe4177h.eot');
-    src: url('//at.alicdn.com/t/font_1088790_3gghoe4177h.eot?#iefix') format('embedded-opentype'),
-        url('//at.alicdn.com/t/font_1088790_3gghoe4177h.woff2') format('woff2'),
-        url('//at.alicdn.com/t/font_1088790_3gghoe4177h.woff') format('woff'),
-        url('//at.alicdn.com/t/font_1088790_3gghoe4177h.ttf') format('truetype'),
-        url('//at.alicdn.com/t/font_1088790_3gghoe4177h.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_1088790_576ejhq39q.eot');
+    src: url('//at.alicdn.com/t/font_1088790_576ejhq39q.eot?#iefix') format('embedded-opentype'),
+        url('//at.alicdn.com/t/font_1088790_576ejhq39q.woff2') format('woff2'),
+        url('//at.alicdn.com/t/font_1088790_576ejhq39q.woff') format('woff'),
+        url('//at.alicdn.com/t/font_1088790_576ejhq39q.ttf') format('truetype'),
+        url('//at.alicdn.com/t/font_1088790_576ejhq39q.svg#iconfont') format('svg');
+}
+@font-face {
+    font-family: "Museo";
+    src: url(./museosans_500.otf);
+    font-weight: normal;
 }
 
 * {
@@ -20,12 +25,6 @@
 body {
     font-family: @main-font-family;
     font-size: 14px;
-}
-.main {
-    display: flex;
-    flex-flow: column nowrap;
-    min-height: 100vh;
-    background-color: @bg0;
 }
 a {
     color: inherit;
@@ -54,12 +53,6 @@ button {
         opacity: 0.8;
     }
 }
-input::-ms-clear {
-    display: none;
-}
-input[type='file'] {
-    display: none;
-}
 .iconfont {
     font-family: "iconfont" !important;
     font-size: 16px;
@@ -67,4 +60,11 @@ input[type='file'] {
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0.2px;
     -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+    color: @f0;
+}
+.layout {
+    background-color: @bg;
 }

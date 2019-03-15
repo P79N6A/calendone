@@ -15,25 +15,38 @@ const Nav: React.FunctionComponent<IProps> = (props: IProps) => {
                 {currPath === "/" ? (
                     <React.Fragment>
                         <i className="iconfont calendar" />
-                        Calendar
+                        Calendone
                     </React.Fragment>
                 ) : (
                     <Link to="/">
                         <i className="iconfont calendar" />
-                        Calendar
+                        Calendone
                     </Link>
                 )}
             </div>
             <div className={classNames("nav-tab", { active: currPath === "/plans" })}>
-                {currPath === "/todo" ? (
+                {currPath === "/plans" ? (
                     <React.Fragment>
                         <i className="iconfont plans" />
                         Plans
                     </React.Fragment>
                 ) : (
-                    <Link to="/todo">
+                    <Link to="/plans">
                         <i className="iconfont plans" />
                         Plans
+                    </Link>
+                )}
+            </div>
+            <div className={classNames("nav-tab", { active: currPath === "/stats" })}>
+                {currPath === "/stats" ? (
+                    <React.Fragment>
+                        <i className="iconfont stats" />
+                        Statistics
+                    </React.Fragment>
+                ) : (
+                    <Link to="/plans">
+                        <i className="iconfont stats" />
+                        Statistics
                     </Link>
                 )}
             </div>

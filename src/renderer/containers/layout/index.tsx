@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { RouteComponentProps } from "react-router";
 
 import Nav from "./nav";
+import Header from "./header";
 import "./index.less";
 
 /**
@@ -13,7 +14,10 @@ abstract class BasicLayout extends Component<RouteComponentProps<{}>, {}> {
         return (
             <div className="layout">
                 <Nav location={this.props.location} />
-                <div className="main">{this.renderMain()}</div>
+                <div className="main">
+                    <Header />
+                    {this.renderMain()}
+                </div>
             </div>
         );
     }
